@@ -23,6 +23,29 @@ asm_main:
         enter   0,0               ; setup routine
         pusha
 
+        ; mov eax, -34
+        ; dump_regs 1
+
+        mov eax, 0
+        mov al, 0DEH ; -34 into eax
+
+        call print_int
+        call print_nl
+
+        mov eax, 0FFFFFFFFH
+        mov al, 0DEH
+
+        call print_int
+        call print_nl
+
+        mov eax, -1
+        mov ax, 58
+        dump_regs 1
+
+
+        movzx eax, ax
+        dump_regs 2
+
 		; TODO: add code
 
         popa
