@@ -47,8 +47,11 @@ asm_main:
         mov ebx, 2 ; 010
         test eax, ebx ;000
         dump_regs 1
+<<<<<<< HEAD
 
         
+=======
+>>>>>>> 0cc9698aac6e4ad092c22d107ba8b2db71181939
 
         popa
         mov     eax, 0            ; return back to C
