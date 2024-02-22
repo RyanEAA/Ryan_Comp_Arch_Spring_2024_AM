@@ -33,26 +33,26 @@ asm_main:
         enter   0,0               ; setup routine
         pusha
 
-        mov     eax, prompt
-        call    print_string
+        mov     eax, prompt     ; setup prompt to be printer
+        call    print_string    ; print prompt
 
-        call    read_int
-        mov     [input], eax
+        call    read_int        ; reading int from user
+        mov     [input], eax    ; moving eax into [input]
 
         imul    eax               ; edx:eax = eax * eax
         mov     ebx, eax          ; save answer in ebx
-        mov     eax, square_msg
-        call    print_string
-        mov     eax, ebx
-        call    print_int
-        call    print_nl
+        mov     eax, square_msg ; setup square number
+        call    print_string    ; print square message
+        mov     eax, ebx        ; eax = ebx
+        call    print_int       ; print eax (squared #)
+        call    print_nl        ; print newline
 
-        mov     ebx, eax
-        imul    ebx, [input]      ; ebx *= [input]
-        mov     eax, cube_msg
+        mov     ebx, eax        ; ebx = eax  - (number ^ 2 )
+        imul    ebx, [input]      ; ebx *= [input] - (number ^ 3)
+        mov     eax, cube_msg   ; print out prompt
         call    print_string
-        mov     eax, ebx
-        call    print_int
+        mov     eax, ebx       ; print out number ^ 3
+        call    print_int       
         call    print_nl
 
         imul    ecx, ebx, 25      ; ecx = ebx*25
@@ -63,7 +63,7 @@ asm_main:
         call    print_nl
 
         mov     eax, ebx
-        cdq                       ; initialize edx by sign extension
+        cdq                       ; initialize edx by sign extension - zeroing out edx
         mov     ecx, 100          ; can't divide by immediate value
         idiv    ecx               ; edx:eax / ecx
         mov     ecx, eax          ; save quotient into ecx

@@ -4,6 +4,7 @@
 ; Purpose: skeleton file for writing an assembly program
 
 %include "asm_io.inc"
+%include "asm_io.asm"
 
 ; initialized data
 segment .data
